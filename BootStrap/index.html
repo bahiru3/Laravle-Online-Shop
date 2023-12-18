@@ -2,9 +2,10 @@
 <html>
     
     <head >
-<title>BootStrap Project</title>
+       <title>BootStrap Project</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
+<!-- <script src="js/jsvalidation.js"></script> -->
 <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
     </head>
    
@@ -23,11 +24,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
                     </li>
                 </ul>
             </div>
@@ -46,13 +48,13 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <h3 class="feature-title">Lorem ipsum</h3>
-                    <img src="../BootStrap/image/column-1.jpg" class="img-fluid">
+                    <img src="image/column-1.jpg" class="img-fluid">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
                 </div>
                 
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <h3 class="feature-title">Lorem ipsum</h3>
-                    <img src="../BootStrap/image/column-2.jpg" class="img-fluid">
+                    <img src="image/column-2.jpg" class="img-fluid">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
                 </div>
                 
@@ -67,7 +69,7 @@
                     <div class="form-group">
                         <textarea class="form-control" rows="4"></textarea>
                     </div>
-                    <input type="submit" class="btn btn-secondary btn-block" value="Send" name="">
+                    <input type="submit" class="btn btn-secondary btn-block" value="Send" name ="" id="button">
                     
                 </div>
                 
@@ -79,22 +81,14 @@
             <div class="container team">
                 <div class="row">
                     <div class="card col-lg-3 col-md-3 col-sm-4 text-center">
-                        <img class="card-img-top rounded-circle" src="../BootStrap/image/team-image-1.webp" alt="Card image">
+                        <img class="card-img-top rounded-circle" src="image/team-image-1.webp" alt="Card image">
                         <div class="card-body">
                             <h4 class="card-title">Jane Doe</h4>
                             <p class="card-text">Job Description</p>
                         </div>
                     </div>
                     <div class="card col-lg-3 col-md-3 col-sm-4 text-center">
-                        <img class="card-img-top rounded-circle" src="../BootStrap/image/team-image-2.jpeg" alt="Card image">
-                        <div class="card-body">
-                            <h4 class="card-title">Jane Doe</h4>
-                            <p class="card-text">Job Description</p>
-                        </div>
-                        
-                    </div>
-                    <div class="card col-lg-3 col-md-3 col-sm-4 text-center">
-                        <img class="card-img-top rounded-circle" src="../BootStrap/image/team-image-1.webp" alt="Card image">
+                        <img class="card-img-top rounded-circle" src="image/team-image-2.jpeg" alt="Card image">
                         <div class="card-body">
                             <h4 class="card-title">Jane Doe</h4>
                             <p class="card-text">Job Description</p>
@@ -102,7 +96,15 @@
                         
                     </div>
                     <div class="card col-lg-3 col-md-3 col-sm-4 text-center">
-                        <img class="card-img-top rounded-circle" src="../BootStrap/image/team-image-2.jpeg" alt="Card image">
+                        <img class="card-img-top rounded-circle" src="image/team-image-1.webp" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Jane Doe</h4>
+                            <p class="card-text">Job Description</p>
+                        </div>
+                        
+                    </div>
+                    <div class="card col-lg-3 col-md-3 col-sm-4 text-center">
+                        <img class="card-img-top rounded-circle" src="image/team-image-2.jpeg" alt="Card image">
                         <div class="card-body">
                             <h4 class="card-title">Jane Doe</h4>
                             <p class="card-text">Job Description</p>
@@ -132,9 +134,27 @@
             <div>
             <div class="footer-copyright text-center">© 2023 Copyright: MyWebsite.com</div>
         </footer>
+<script>
+    function clicklisner(){
+// console.log('button click')
+    }
+    let button=document.querySelector('#button');
+// let messge=document.querSelector(messge);
+// let emailText=email;
+//  let messgeText=messge;
+ 
+//  console.log(submit-button);
+
+     
+button.addEventListener('click',clicklistener);
+        function clicklistener(event){
+            event.preventDefault();
+            console.log('submit_button');
+        }
         
-             
-        
-        
+        button.addEventListener('click',clicklistener);
+
+</script>
+      
     </body>
 </html>
