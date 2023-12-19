@@ -1,8 +1,8 @@
 <?php
 class Employee {
-    private  $name;
-    private  $designation;
-    public $salary;
+    private $name;
+    private $designation;
+    private $salary;
 
     public function __construct($name, $designation, $salary) {
         $this->name = $name;
@@ -34,15 +34,16 @@ class Employee {
         $this->salary = $salary;
     }
 }
-
 $employee1 = new Employee("John Doe", "Manager", 5000);
 $employee2 = new Employee("Jane Smith", "Developer", 4000);
 
 echo $employee1->getName(); // Output: John Doe
+echo $employee2->getName(); // Output: Jane Smith
 echo $employee2->getSalary(); // Output: 4000
 
 $employee1->setSalary(5500);
 echo $employee1->getSalary(); // Output: 5500
+
 
 
 ?>
