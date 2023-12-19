@@ -1,4 +1,4 @@
-<?
+<?php
 class Employee {
     protected $name;
     protected $baseSalary;
