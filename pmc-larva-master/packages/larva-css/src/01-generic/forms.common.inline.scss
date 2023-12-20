@@ -1,0 +1,10 @@
+@import 'setup';
+
+::placeholder {
+	color: #{map-get( $TOKENS-MAP, color-grey-light )};
+}
+
+button {
+	padding-left: 0;
+	padding-right: 0;
+}

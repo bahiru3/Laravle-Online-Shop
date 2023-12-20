@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if 'components' == type or 'modules' == type or 'objects' == type %}
+		{% set ext = '.twig' %}
+	{% else %}
+		{% set ext = '.html' %}
+	{% endif %}
+
+	{% set path = type ~"/" ~ name ~ "/" ~ name ~ ext %}
+
+	<header class="lrv-u-background-color-grey-light lrv-u-padding-a-1  js-LarvaUiToggle-panel">
+		<h1 class="lrv-u-font-family-basic lrv-u-margin-a-00">{{ source ~ ' ' ~ type ~ ': ' }}<code>{{ name  }}{{ variant ? '.' ~ variant }}</code></h1>
+		<div class="lrv-u-flex lrv-u-align-items-center lrv-a-space-children-horizontal lrv-a-space-children--1">
+			<h2>Available Variants</h2>
+			{% for item in variants %}
+				{% set slug = item == 'prototype' ? '' : item %}
+				{% set link = "/" ~ source ~ "/" ~ type ~ "/" ~ name ~ "/" ~ slug %}
+				{% set current_class = variant == item ? 'lrv-u-background-color-brand-primary lrv-u-color-white lrv-u-color-white:hover' : '' %}
+
+				<a href="{{ link }}" class="lrv-u-padding-a-050 {{ current_class }}">{{ item }}</a>
+			{% endfor %}
+		</div>
+	</header>
+
+	{% if data.error %}
+		<div class="lrv-a-wrapper">
+			<h2 style="color: red;">
+				{{ data.message|raw }}
+			</h2>
+			<code>{{ data.error.message }}</code>
+			<pre>
+				{{ data.error.stack }}
+			</pre>
+		</div>
+	{% else %}
+		{% include path with data %}
+	{% endif %}
+
+	<div class="lrv-u-background-color-grey-light lrv-a-grid lrv-u-font-size-12 lrv-u-border-t-1 lrv-u-border-color-grey lrv-u-padding-a-2 js-LarvaUiToggle-panel">
+		<details>
+			<summary class="lrv-u-font-size-24 lrv-u-cursor-pointer"><code>{{ name }}</code> README</summary>
+			<div class="lrv-u-padding-a-1 lrv-u-background-color-white lrv-u-font-size-16">
+				{{ source( "@" ~ source ~ "/" ~ type ~"/" ~ name ~ "/" ~ 'README.md', true )|markdown|raw }}
+			</div>
+		</details>
+		<details>
+			{% if type == 'one-offs' %}
+				<summary class="lrv-u-font-size-24 lrv-u-cursor-pointer"><code>{{ name }}</code> HTML <small class="lrv-u-font-size-16">Dummy HTML for development.</small></summary>
+			{% else %}
+				<summary class="lrv-u-font-size-24 lrv-u-cursor-pointer"><code>{{ name }}</code> Twig <small class="lrv-u-font-size-16">The markup file.</small></summary>
+			{% endif %}
+
+			<pre class="lrv-a-wrapper language-twig"><code>{{ source( path )|escape }}</code></pre>
+		</details>
+
+		{% if type != 'algorithms' %}
+			<details>
+				<summary class="lrv-u-font-size-24 lrv-u-cursor-pointer"><code>{{ name }}{{ variant ? '.' ~ variant }}</code> JSON <small class="lrv-u-font-size-16">The data object for this pattern.</small></summary>
+				<pre class="lrv-a-wrapper language-json"><code>{{ json_pretty|raw }}</code></pre>
+			</details>
+		{% endif %}
+
+		{% if type == 'algorithms' %}
+
+		{% endif %}
+	</div>
+{% endblock %}

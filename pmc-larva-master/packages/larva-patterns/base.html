@@ -1,0 +1,73 @@
+{% set has_side_skins = query.has_side_skins %}
+
+<!doctype html>
+<html lang="en" class="wf-active">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>LRVA: {{brand}} | {{ source }} | {{ name }}</title>
+
+		{% block stylesheets %}
+		{% endblock %}
+
+		<link rel="stylesheet" href="/assets/build/tokens/{{brand}}.custom-properties.css">
+		{% block compat_stylesheet %}
+		{% endblock compat_stylesheet %}
+
+		<link rel="stylesheet" href="/assets/build/css/larva.css">
+		<link rel="stylesheet" href="/assets/build/css/larva-ui.css">
+
+
+		<script>
+			// Stub in PMC cookie object so fonts load on Larva server
+			if ( ! window.pmc ) {
+				window.pmc = {
+					cookie: {
+						get: () => {},
+						set: () => {},
+						expire: () => {},
+					}
+				};
+			}
+
+			// Stub skins object
+			{% if has_side_skins %}
+				window.pmc_dfp_skin = {};
+			{% endif %}
+
+		</script>
+
+	</head>
+	<body class="lrv-u-margin-a-00 {{ compat_class }}">
+
+		<main class="lrv-u-flex">
+			<div class="lrv-u-padding-a-1 lrv-a-glue-parent lrv-u-flex js-LarvaUiToggle-panel">
+				{% include "@larva/_templates/pattern-nav.html" with { source: 'larva' } %}
+				{% if pattern_nav.project %}
+					{% include "@larva/_templates/pattern-nav.html" with { source: 'project' } %}
+				{% endif %}
+			</div>
+			<div class="lrv-u-flex-grow-1">
+				{% block content %}{% endblock %}
+			</div>
+		</main>
+		<br>
+
+		{# Note: Don't write CSS like this in an actual product. #}
+		<div style="position: fixed;
+					bottom: 0;
+					right: 0;
+					z-index: 9999999;">
+			{% include "@larva/components/c-button/c-button.twig" with {
+				"c_button_text": "Toggle Larva UI",
+				"c_button_classes": "js-LarvaUiToggle-button lrv-a-unstyle-button lrv-u-background-color-black lrv-u-color-white lrv-u-padding-a-1 lrv-u-cursor-pointer"
+			} %}
+		</div>
+
+		<script src="/assets/public/webfontloader.js"></script>
+		<script src="/assets/build/js/larva-ui.js"></script>
+		<script src="/assets/build/js/common.js"></script>
+
+		{% block scripts %}{% endblock %}
+	</body>
+</html>

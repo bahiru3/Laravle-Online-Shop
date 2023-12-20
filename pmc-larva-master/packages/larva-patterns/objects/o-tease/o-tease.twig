@@ -1,0 +1,50 @@
+{% if is_single %}
+	<div class="o-tease {{ modifier_class }} {{ o_tease_classes }}" {{ o_tease_data_attributes }}>
+{% else %}
+	<article class="o-tease {{ modifier_class }} {{ o_tease_classes }}" {{ o_tease_data_attributes }}>
+{% endif %}
+
+	{% if o_tease_url %}
+		<a href="{{ o_tease_url }}" class="{{ o_tease_link_classes }}">
+	{% endif %}
+		<div class="o-tease__primary {{ o_tease_primary_classes }}">
+			{% if c_span %}
+				{% include "@larva/components/c-span/c-span.twig" with c_span %}
+			{% endif %}
+
+			{% if c_heading %}
+				{% include "@larva/components/c-heading/c-heading.twig" with c_heading %}
+			{% endif %}
+
+			{% if c_title %}
+				{% include "@larva/components/c-title/c-title.twig" with c_title %}
+			{% endif %}
+
+			{% if c_tagline %}
+				{% include "@larva/components/c-tagline/c-tagline.twig" with c_tagline %}
+			{% endif %}
+
+			{% if c_button %}
+				{% include "@larva/components/c-button/c-button.twig" with c_button %}
+			{% endif %}
+
+			{% if c_byline %}
+				{% include "@larva/components/c-byline/c-byline.twig" with c_byline %}
+			{% endif %}
+		</div>
+
+		{% if c_lazy_image %}
+		<div class="o-tease__secondary {{ o_tease_secondary_classes }}">
+			{% include "@larva/components/c-lazy-image/c-lazy-image.twig" with c_lazy_image %}
+		</div>
+		{% endif %}
+
+	{% if o_tease_url %}
+		</a>
+	{% endif %}
+
+{% if is_single %}
+	</div>
+{% else %}
+	</article>
+{% endif %}

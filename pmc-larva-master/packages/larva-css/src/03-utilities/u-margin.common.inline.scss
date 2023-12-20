@@ -1,0 +1,200 @@
+@import 'setup';
+
+$breakpoints: (
+	'',
+	'mobile-max',
+	'desktop',
+	'desktop-xl'
+);
+
+.lrv-u-margin-r-175\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		margin-right: $spacer-175;
+	}
+}
+
+.lrv-u-margin-t-150\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		margin-top: $spacer-150;
+	}
+}
+
+.lrv-u-margin-r-2\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		margin-right: $spacer-2;
+	}
+}
+
+.lrv-u-margin-l-2\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		margin-left: $spacer-2;
+	}
+}
+
+@mixin _u-margin( $token-name, $token-selector, $value, $breakpoint-suffix: '' ) {
+	.lrv-u-margin-r-#{$token-selector}#{$breakpoint-suffix} {
+		margin-right: $value;
+		margin-right: var(--#{$token-name}, #{$value} );
+	}
+
+	.lrv-u-margin-l-#{$token-selector}#{$breakpoint-suffix} {
+		margin-left: $value;
+		margin-left: var(--#{$token-name}, #{$value} );
+	}
+
+	.lrv-u-margin-b-#{$token-selector}#{$breakpoint-suffix} {
+		margin-bottom: $value;
+		margin-bottom: var(--#{$token-name}, #{$value} );
+	}
+
+	.lrv-u-margin-t-#{$token-selector}#{$breakpoint-suffix} {
+		margin-top: $value;
+		margin-top: var(--#{$token-name}, #{$value} );
+	}
+
+	.lrv-u-margin-tb-#{$token-selector}#{$breakpoint-suffix} {
+		margin-top: $value;
+		margin-top: var(--#{$token-name}, #{$value} );
+		margin-bottom: $value;
+		margin-bottom: var(--#{$token-name}, #{$value} );
+	}
+
+	.lrv-u-margin-lr-#{$token-selector}#{$breakpoint-suffix} {
+		margin-left: $value;
+		margin-left: var(--#{$token-name}, #{$value} );
+		margin-right: $value;
+		margin-right: var(--#{$token-name}, #{$value} );
+	}
+
+	.lrv-u-margin-a-#{$token-selector}#{$breakpoint-suffix} {
+		margin: $value;
+		margin: var(--#{$token-name}, #{$value} );
+	}
+}
+
+// Auto margins
+
+.lrv-u-margin-l-auto {
+	margin-left: auto;
+}
+
+.lrv-u-margin-r-auto {
+	margin-right: auto;
+}
+
+.lrv-u-margin-t-auto {
+	margin-top: auto;
+}
+
+.lrv-u-margin-b-auto {
+	margin-bottom: auto;
+}
+
+.lrv-u-margin-lr-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.lrv-u-margin-tb-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+@include pmc-breakpoint( desktop ) {
+
+	.lrv-u-margin-l-auto\@desktop {
+		margin-left: auto;
+	}
+
+	.lrv-u-margin-r-auto\@desktop {
+		margin-right: auto;
+	}
+
+	.lrv-u-margin-t-auto\@desktop {
+		margin-top: auto;
+	}
+
+	.lrv-u-margin-b-auto\@desktop {
+		margin-bottom: auto;
+	}
+
+	.lrv-u-margin-lr-auto\@desktop {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.lrv-u-margin-tb-auto\@desktop {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+}
+
+@each $breakpoint in $breakpoints {
+
+	@each $token, $value in $TOKENS-MAP {
+
+		$token-str: quote( $token );
+
+		// No negative spacing for padding
+		@if str-index( $token-str, 'spacing' ) and not str-index( $token-str, 'letter-spacing' ) {
+
+			$token-name: $token;
+			$token-selector: str-replace( $token-str, 'spacing-', '' );
+
+			@if '' == $breakpoint {
+				@include _u-margin( $token-name, $token-selector, $value );
+			} @else {
+
+				$breakpoint-suffix: '\\@#{$breakpoint}';
+
+				@include pmc-breakpoint( $breakpoint ) {
+					@include _u-margin( $token-name, $token-selector, $value, $breakpoint-suffix );
+				}
+			}
+
+		}
+	}
+}
+
+// Legacy - should not have mobile-max and tablet
+$margins_with_breakpoints: (
+
+	// Breakpoints
+	('a', $spacer-0, mobile-max),
+	('t', $spacer-050, mobile-max),
+	('t', $spacer-1, mobile-max),
+	('t', $spacer-2, mobile-max),
+	('r', $spacer-0, mobile-max),
+	('b', $spacer-1, mobile-max),
+	('b', $spacer-050, mobile-max),
+	('tb', $spacer-0, mobile-max),
+	('tb', $spacer-1, mobile-max),
+	('l', $spacer-1, tablet),
+	('r', $spacer-1, tablet),
+	('r', $spacer-0, tablet),
+	('b', $spacer-1, tablet),
+	('b', $spacer-2, tablet),
+	('t', $spacer-050, desktop-xl), 
+);
+
+@include u-margin( $margins_with_breakpoints, $NAMESPACE: 'lrv-' );
+
+// Legacy - tablet will be removed
+.lrv-u-margin-l-auto\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		margin-left: auto;
+	}
+}
+
+.lrv-u-margin-b-250\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		margin-bottom: $spacer-250;
+	}
+}
+
+.lrv-u-margin-t-175\@desktop-xl {
+	@include pmc-breakpoint( desktop-xl ) {
+		margin-top: $spacer-175;
+	}
+}

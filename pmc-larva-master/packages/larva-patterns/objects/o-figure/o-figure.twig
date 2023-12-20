@@ -1,0 +1,34 @@
+{% if o_figure_link_url %}
+	<a href="{{ o_figure_link_url }}" class="o-figure__link {{ o_figure_link_classes }}"
+		{% if o_figure_link_target_attr %}
+			target="{{ o_figure_link_target_attr }}"
+		{% endif %}
+		{% if o_figure_link_tabindex_attr %}
+			tabindex="{{ o_figure_link_tabindex_attr }}"
+		{% endif %}
+	>
+{% endif %}
+
+<figure class="o-figure {{ modifier_class }} {{ o_figure_classes }} lrv-u-max-width-100p" style="{{ o_figure_width_attr }}">
+
+	{% if c_lazy_image %}
+		{% include "@larva/components/c-lazy-image/c-lazy-image.twig" with c_lazy_image %}
+	{% endif %}
+
+	{% if c_figcaption %}
+		{% if o_figure_figcaption_outer %}
+			<div class="o-figure__figcaption-outer {{ o_figure_figcaption_outer_classes }}">
+		{% endif %}
+
+			{% include "@larva/components/c-figcaption/c-figcaption.twig" with c_figcaption %}
+
+		{% if o_figure_figcaption_outer %}
+			</div>
+		{% endif %}
+	{% endif %}
+
+</figure>
+
+{% if o_figure_link_url %}
+	</a>
+{% endif %}

@@ -1,0 +1,30 @@
+@import '@penskemediacorp/larva-scss/dist/tools';
+
+@mixin _a-screen-reader-only-base {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px); // stylelint-disable-line unit-disallowed-list
+	clip-path: inset(50%);
+	height: 1px; // stylelint-disable-line unit-disallowed-list
+	margin: -1px; // stylelint-disable-line unit-disallowed-list
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px; // stylelint-disable-line unit-disallowed-list
+	word-wrap: normal;
+}
+
+.lrv-a-screen-reader-only {
+	@include _a-screen-reader-only-base;
+}
+
+.lrv-a-screen-reader-only\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		@include _a-screen-reader-only-base();
+	}
+}
+
+.lrv-a-screen-reader-only\@desktop-xl {
+	@include pmc-breakpoint( desktop-xl ) {
+		@include _a-screen-reader-only-base();
+	}
+}

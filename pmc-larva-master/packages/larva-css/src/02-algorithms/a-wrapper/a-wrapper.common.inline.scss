@@ -1,0 +1,17 @@
+@import 'setup';
+
+.lrv-a-wrapper {
+	max-width: $screen-desktop-xl;
+	max-width: var( --site-max-width, #{$screen-desktop-xl} );
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $spacer-050;
+	padding-right: $spacer-050;
+}
+
+.lrv-a-wrapper-100vw\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+    	width: 100vw;
+    	margin-left: calc(50% - 50vw);
+	}	
+}

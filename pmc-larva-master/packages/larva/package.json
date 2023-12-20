@@ -1,0 +1,99 @@
+{
+  "name": "@penskemediacorp/larva",
+  "version": "1.59.0",
+  "description": "> TODO: description",
+  "author": "laras126 <laras126@gmail.com>",
+  "homepage": "https://github.com/Penske-Media-Corp/pmc-larva/tree/master/packages/larva#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "bin": {
+    "larva": "bin/larva.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Penske-Media-Corp/pmc-larva.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "update-larva-latest": "npm install --save @penskemediacorp/larva-scss@latest @penskemediacorp/larva-css@latest @penskemediacorp/larva-patterns@latest @penskemediacorp/larva-svg@latest @penskemediacorp/twig-to-php-parser@latest @penskemediacorp/larva-tokens@latest @penskemediacorp/larva-js@latest && npm run prod",
+    "larva": "bin/larva.js server --watch ../larva-patterns --watch src -e twig,js,html",
+    "backstop": "backstop --config=node_modules/@penskemediacorp/backstopjs-config",
+    "prod": "bin/larva.js prod-scss && bin/larva.js prod-js",
+    "prod:scss": "bin/larva.js prod-scss",
+    "prod:js": "bin/larva.js prod-js",
+    "dev": "concurrently \"npm:dev:scss\" \"npm:dev:js\" --raw",
+    "dev:scss": "bin/larva.js dev-scss",
+    "dev:js": "bin/larva.js dev-js",
+    "lint": "bin/larva.js lint-scss & larva lint-js",
+    "lint:scss": "bin/larva.js lint-scss",
+    "lint:js": "bin/larva.js lint-js ./",
+    "lint-fix": "bin/larva.js lint-scss --fix && npm run lint:js --fix",
+    "lint-fix:scss": "bin/larva.js lint-scss --fix",
+    "lint-fix:js": "bin/larva.js lint-js --fix",
+    "write-json": "bin/larva.js write-json larva && bin/larva.js write-json",
+    "build-icons": "bin/larva.js build-icons",
+    "build-html": "bin/larva.js build-html larva && bin/larva.js build-html project"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/Penske-Media-Corp/pmc-larva/issues"
+  },
+  "//": "DEPENDENCIES NOTES: Do not upgrade globby past 11 unless migrating entire app to module 'type'",
+  "dependencies": {
+    "@babel/core": "^7",
+    "@babel/preset-env": "^7",
+    "@penskemediacorp/backstopjs-config": "^1.59.0",
+    "@penskemediacorp/eslint-config": "^1.59.0",
+    "@penskemediacorp/larva-css": "^1.59.0",
+    "@penskemediacorp/larva-js": "^1.59.0",
+    "@penskemediacorp/larva-patterns": "^1.59.0",
+    "@penskemediacorp/larva-scss": "^1.59.0",
+    "@penskemediacorp/larva-svg": "^1.59.0",
+    "@penskemediacorp/larva-tokens": "^1.59.0",
+    "@penskemediacorp/stylelint-config": "^1.59.0",
+    "@penskemediacorp/twig-to-php-parser": "^1.59.0",
+    "axios": "^1",
+    "babel-loader": "^9",
+    "chalk": "^4",
+    "clean-webpack-plugin": "^4",
+    "concurrently": "^8",
+    "cross-spawn": "^7",
+    "eslint": "^8",
+    "eslint-webpack-plugin": "^4",
+    "express": "^4",
+    "flickity": "^2",
+    "fs-extra": "^11",
+    "globby": "^11",
+    "gulp": "^4",
+    "gulp-clean": "^0",
+    "gulp-cli": "^2",
+    "gulp-if": "^3",
+    "gulp-ignore": "^3",
+    "gulp-postcss": "^9",
+    "gulp-rename": "^2",
+    "gulp-sass": "^5",
+    "gulp-stylelint": "^13",
+    "lodash.clonedeep": "^4",
+    "marked": "^9",
+    "node-sass-glob-importer": "^5",
+    "nodemon": "^3",
+    "postcss": "^8",
+    "sass": "^1",
+    "shelljs": "^0",
+    "stylelint": "^13",
+    "svg-sprite": "^2",
+    "svgo": "^3",
+    "twing": "^5",
+    "webpack": "^5",
+    "webpack-cli": "^5"
+  },
+  "devDependencies": {
+    "prettier": "npm:wp-prettier@^3"
+  },
+  "overrides": {
+    "@wordpress/eslint-plugin": "^17"
+  },
+  "gitHead": "a0ba45ec5dcc37b859cb08ffd694582c3d10bcdc"
+}

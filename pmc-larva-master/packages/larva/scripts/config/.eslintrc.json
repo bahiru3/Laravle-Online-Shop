@@ -1,0 +1,12 @@
+{
+	"extends": "@penskemediacorp/eslint-config",
+	"overrides": [ {
+		"files": [
+			"**/*.js"
+		],
+		"rules": {
+			"import/no-unresolved": "off"
+		}
+	} ],
+	"root": true
+}

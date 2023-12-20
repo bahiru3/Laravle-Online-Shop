@@ -1,0 +1,121 @@
+@import 'setup';
+
+@mixin _a-icon-base {
+	content: var(--a-icon-content, '');
+	filter: var(--a-icon-filter, none);
+	background-image: var(--a-icon-url, '');
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: var(--a-icon-height, #{ $spacer-1 });
+	width: var(--a-icon-width, #{ $spacer-1 });
+	transform: var( --a-icon-transform, none );
+	flex-shrink: 0;
+}
+
+@mixin _a-icon-base-pseudo( $pseudo-el ) {
+	display: inline-flex;
+	align-items: center;
+	flex-wrap: nowrap;
+
+	&::#{$pseudo-el} {
+		@include _a-icon-base();
+
+		@content;
+	}
+}
+
+@mixin _a-icon-reset( $pseudo-el ) {
+	&::#{$pseudo-el} {
+		height: initial;
+		width: initial;
+		// background okay for reset.
+		background: initial; // stylelint-disable-line property-disallowed-list
+		font-size: inherit;
+		color: currentColor;
+		margin: 0;
+
+		@content;
+	}
+}
+
+.lrv-a-icon {
+	@include _a-icon-base();
+}
+
+.lrv-a-icon-before {
+	@include _a-icon-base-pseudo( before ) {
+		margin-right: $spacer-050;
+	}
+}
+
+.lrv-a-icon-after {
+	@include _a-icon-base-pseudo( after ) {
+		margin-left: $spacer-050;
+	}
+}
+
+.lrv-a-icon-after\:margin-l-auto::after {
+	margin-left: auto;
+}
+
+// Specific Icons
+
+.lrv-a-icon-forward-slash,
+.lrv-a-icon-bullet,
+.lrv-a-icon-vertical-pipe {
+	@include _a-icon-reset( before ) {
+		padding-right: $spacer-050;
+	};
+
+	@include _a-icon-reset( after ) {
+		padding-left: $spacer-025;
+	};
+}
+
+.lrv-a-icon-forward-slash {
+	--a-icon-content: '/';
+}
+
+.lrv-a-icon-bullet {
+	--a-icon-content: '\02022';
+}
+
+.lrv-a-icon-vertical-pipe {
+	--a-icon-content: '\007C';
+	padding-right: $spacer-025;
+}
+
+.lrv-a-icon-after-arrow-top-left {
+	&::before {
+		position: absolute;
+		content: '';
+		display: block;
+		width: pmc-rem(24);
+		height: pmc-rem(24);
+		left: 13%;
+		border: 2px solid map-get( $TOKENS-MAP, color-black );
+		border-right-color: transparent;
+		border-bottom-color: transparent;
+		transform: rotate( 45deg );
+		top: pmc-rem(-12);
+		background-color: $color-white;
+	}
+}
+
+.lrv-a-icon-after-arrow-top-right {
+	&::before {
+		position: absolute;
+		content: '';
+		display: block;
+		width: pmc-rem(24);
+		height: pmc-rem(24);
+		right: 13%;
+		border: 2px solid map-get( $TOKENS-MAP, color-black );
+		border-right-color: transparent;
+		border-bottom-color: transparent;
+		transform: rotate( 45deg );
+		top: pmc-rem(-12);
+		background-color: $color-white;
+	}
+}
+

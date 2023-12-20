@@ -1,0 +1,44 @@
+{
+	"imports": [
+		"./deprecated/aliases.json"
+	],
+	"global": {
+		"category": "text-color",
+		"type": "color"
+	},
+	"props": {
+		"COLOR_WHITE": {
+			"value": "{!WHITE}"
+		},
+		"COLOR_GREY_LIGHT": {
+			"value": "{!GREY_90}"
+		},
+		"COLOR_GREY": {
+			"value": "{!GREY_50}"
+		},
+		"COLOR_GREY_DARK": {
+			"value": "{!GREY_35}"
+		},
+		"COLOR_BLACK": {
+			"value": "{!BLACK}"
+		},
+		"COLOR_BRAND_PRIMARY_LIGHT": {
+			"value": "{!PMC_RED}"
+		},
+		"COLOR_BRAND_PRIMARY": {
+			"value": "{!PMC_RED}"
+		},
+		"COLOR_BRAND_PRIMARY_DARK": {
+			"value": "{!PMC_RED}"
+		},
+		"COLOR_BRAND_SECONDARY": {
+			"value": "{!BLACK}"
+		},
+		"COLOR_BRAND_SECONDARY_LIGHT": {
+			"value": "{!BLACK}"
+		},
+		"COLOR_BRAND_SECONDARY_DARK": {
+			"value": "{!BLACK}"
+		},
+	}
+}

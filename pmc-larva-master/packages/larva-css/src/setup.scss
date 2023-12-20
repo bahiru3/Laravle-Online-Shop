@@ -1,0 +1,7 @@
+@import '../../larva-scss/dist/generators';
+@import '../../larva-scss/dist/tokens';
+@import '../../larva-tokens/build/default.map.scss';
+
+$TOKENS-MAP: $default-map;
+
+$ICONS_BUILD_PATH: '../icons';

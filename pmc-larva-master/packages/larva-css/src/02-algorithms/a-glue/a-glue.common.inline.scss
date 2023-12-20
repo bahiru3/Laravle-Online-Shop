@@ -1,0 +1,105 @@
+@import '@penskemediacorp/larva-scss/dist/tokens';
+@import '@penskemediacorp/larva-scss/dist/tools';
+
+@mixin _a-glue-base {
+	position: absolute;
+	z-index: $z-index-middle-bottom;
+	top: var( --a-glue-top, initial );
+	bottom: var( --a-glue-bottom, initial );
+	right: var( --a-glue-right, initial );
+	left: var( --a-glue-left, initial );
+}
+
+.lrv-a-glue-parent {
+	position: relative;
+}
+
+.lrv-a-glue {
+	// Fallback is top left for everything.
+	top: 0;
+	left: 0;
+
+	@include _a-glue-base;
+}
+
+@include pmc-breakpoint( mobile-max ) {
+	.lrv-a-glue\@mobile-max {
+		top: 0;
+		left: 0;
+
+		@include _a-glue-base;
+	}
+}
+
+@include pmc-breakpoint( desktop ) {
+	.lrv-a-glue\@desktop {
+		top: 0;
+		left: 0;
+
+		@include _a-glue-base;
+	}
+}
+
+.lrv-a-glue\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		// TODO: incorporate these fallback values into mixin
+		top: 0;
+		left: 0;
+
+		@include _a-glue-base;
+	}
+}
+
+.lrv-a-glue--l-0 {
+	--a-glue-left: 0;
+}
+
+.lrv-a-glue--r-0 {
+	--a-glue-right: 0;
+}
+
+.lrv-a-glue--t-0 {
+	--a-glue-top: 0;
+}
+
+.lrv-a-glue--b-0 {
+	--a-glue-bottom: 0;
+}
+
+.lrv-a-glue--t-50p {
+	--a-glue-top: 50%;
+}
+
+.lrv-a-glue--t-100p {
+	--a-glue-top: 100%;
+}
+
+.lrv-a-glue--l-50p {
+	--a-glue-left: 50%;
+}
+
+.lrv-a-glue--r-50p {
+	--a-glue-right: 50%;
+}
+
+.lrv-a-glue--b-n1 {
+	--a-glue-bottom: -1rem;
+}
+
+.lrv-a-glue-parent\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		position: relative;
+	}
+}
+
+.lrv-a-glue-parent\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		position: relative;
+	}
+}
+
+.lrv-a-glue--b-unset\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		bottom: unset;
+	}
+}

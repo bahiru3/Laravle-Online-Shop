@@ -1,0 +1,43 @@
+@import 'setup';
+
+@mixin _a-hidden {
+	// stylelint-disable declaration-no-important
+	display: none !important;
+	// stylelint-enable declaration-no-important
+	height: 0;
+	width: 0;
+}
+
+.lrv-a-hidden {
+	@include _a-hidden;
+}
+
+.lrv-a-hidden\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		@include _a-hidden;
+	}
+}
+
+.lrv-a-hidden\@desktop-max {
+	@include pmc-breakpoint( desktop-max ) {
+		@include _a-hidden;
+	}
+}
+
+.lrv-a-hidden\@desktop-xl-max {
+	@include pmc-breakpoint( desktop-xl-max ) {
+		@include _a-hidden;
+	}
+}
+
+.lrv-a-hidden\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		@include _a-hidden;
+	}
+}
+
+.lrv-a-hidden\@desktop {
+	@include pmc-breakpoint( desktop ) {
+		@include _a-hidden;
+	}
+}

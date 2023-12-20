@@ -1,0 +1,56 @@
+@import 'setup';
+
+body {
+
+	// stylelint-disable property-disallowed-list
+	font-family: map-get( $TOKENS-MAP, font-family-basic );
+	font-family: var( --font-family-basic, #{map-get( $TOKENS-MAP, font-family-basic )} );
+
+	margin: $spacer-0;
+	// stylelint-enable property-disallowed-list
+
+	line-height: $line-height-normal;
+}
+
+// Apply the webfont when fonts are loaded.
+.wf-active body {
+
+	@each $token, $value in $TOKENS-MAP {
+		$token-str: quote( $token );
+
+		// example: font-family-primary
+		// each will have a corresponding `fancy` variation.
+		@if str-index( $token-str, 'font-family' ) and not str-index( $token-str, 'fancy' ) {
+			--#{$token}: var( --#{$token}-fancy );
+		}
+	}
+
+}
+
+strong {
+	font-weight: map-get( $semantic-font-weights, bold );
+}
+
+a {
+	color: map-get( $TOKENS-MAP, brand-primary );
+	color: var( --color-brand-primary, #{map-get( $TOKENS-MAP, color-brand-primary )} );
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	font-weight: map-get( $semantic-font-weights, bold );
+}
+
+ol,
+ul {
+	margin-top: 0;
+}

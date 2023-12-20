@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('welcome');
 });
+
+// // Show login form
+// Route::get('/login', 'LoginController@showLoginForm')->name('login.form');
+
+// // Handle login form submission
+// Route::post('/login', 'LoginController@login')->name('login.submit');
+
+
+

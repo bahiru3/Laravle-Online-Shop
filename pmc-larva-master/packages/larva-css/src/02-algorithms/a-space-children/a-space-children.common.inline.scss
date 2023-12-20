@@ -1,0 +1,127 @@
+@import '@penskemediacorp/larva-scss/dist/tokens';
+@import '@penskemediacorp/larva-scss/dist/tools';
+
+:root {
+	--a-space-children-spacer: 0;
+}
+
+@mixin _a-space-children-horizontal {
+	margin-left: 0.50rem;
+	margin-left: calc( var( --a-space-children-spacer ) * 1rem );
+}
+
+@mixin _a-space-children-vertical {
+	margin-top: 0.50rem;
+	margin-top: calc( var( --a-space-children-spacer ) * 1rem );
+}
+
+// stylelint-disable selector-max-compound-selectors
+.lrv-a-space-children-horizontal > * + * {
+	@include _a-space-children-horizontal();
+}
+
+.lrv-a-space-children-horizontal\@mobile-max > * + * {
+	@include pmc-breakpoint( mobile-max ) {
+		@include _a-space-children-horizontal();
+	}
+}
+
+.lrv-a-space-children-horizontal\@tablet > * + * {
+	@include pmc-breakpoint( tablet ) {
+		@include _a-space-children-horizontal();
+	}
+}
+
+.lrv-a-space-children-horizontal\@desktop-max > * + * {
+	@include pmc-breakpoint( desktop-max ) {
+		@include _a-space-children-horizontal();
+	}
+}
+
+.lrv-a-space-children-horizontal\@desktop-xl > * + * {
+	@include pmc-breakpoint( desktop-xl ) {
+		@include _a-space-children-horizontal();
+	}
+}
+
+.lrv-a-space-children-vertical > * + * {
+	@include _a-space-children-vertical();
+}
+
+.lrv-a-space-children-vertical\@mobile-max > * + * {
+	@include pmc-breakpoint( mobile-max ) {
+		@include _a-space-children-vertical();
+	}
+}
+
+.lrv-a-space-children-vertical\@tablet > * + * {
+	@include pmc-breakpoint( tablet ) {
+		@include _a-space-children-vertical();
+	}
+}
+
+.lrv-a-space-children-vertical\@desktop > * + * {
+	@include pmc-breakpoint( desktop ) {
+		@include _a-space-children-vertical();
+	}
+}
+
+// stylelint-enable selector-max-compound-selectors
+
+.lrv-a-space-children--050 {
+	--a-space-children-spacer: 0.50;
+}
+
+.lrv-a-space-children--1 {
+	--a-space-children-spacer: 1;
+}
+
+.lrv-a-space-children--150 {
+	--a-space-children-spacer: 1.5;
+}
+
+.lrv-a-space-children--2 {
+	--a-space-children-spacer: 2;
+}
+
+.lrv-a-space-children--3 {
+	--a-space-children-spacer: 3;
+}
+
+.lrv-a-space-children--2\@desktop-xl {
+	@include pmc-breakpoint( desktop-xl ) {
+		--a-space-children-spacer: 2;
+ 	}
+}
+
+.lrv-a-space-children--1\@desktop-xl-max {
+	@include pmc-breakpoint( desktop-xl-max ) {
+		--a-space-children-spacer: 1;
+ 	}
+}
+
+.lrv-a-space-children--3\@desktop-xl {
+	@include pmc-breakpoint( desktop-xl ) {
+		--a-space-children-spacer: 3;
+ 	}
+}
+
+.lrv-a-space-children--4\@desktop {
+
+	@include pmc-breakpoint( desktop ) {
+		--a-space-children-spacer: 4;
+	}
+}
+
+.lrv-a-space-children--5\@desktop {
+
+	@include pmc-breakpoint( desktop ) {
+		--a-space-children-spacer: 5;
+	}
+}
+
+.lrv-a-space-children--0\@desktop-xl {
+	@include pmc-breakpoint( desktop-xl ) {
+		--a-space-children-spacer: 0;
+ 	}
+}

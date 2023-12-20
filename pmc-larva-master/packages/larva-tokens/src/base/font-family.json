@@ -1,0 +1,35 @@
+{
+	"global": {
+		"category": "font-family"
+	},
+	"props": {
+		"FONT_FAMILY_PRIMARY_FANCY": {
+			"value": "Arial, sans-serif",
+			"type": "font",
+			"comment": "The webfont, loaded async"
+		},
+		"FONT_FAMILY_PRIMARY": {
+			"value": "Arial, sans-serif",
+			"type": "font",
+			"comment": "Fallback for primary-fancy"
+		},
+		"FONT_FAMILY_SECONDARY_FANCY": {
+			"value": "Arial, sams-serif",
+			"type": "font",
+			"comment": "The webfont, loaded async"
+		},
+		"FONT_FAMILY_SECONDARY": {
+			"value": "Arial, sans-serif",
+			"type": "font",
+			"comment": "Fallback for secondary-fancy"
+		},
+		"FONT_FAMILY_BODY": {
+			"value": "Arial, sans-serif",
+			"type": "font"
+		},
+		"FONT_FAMILY_BASIC": {
+			"value": "Arial, sans-serif",
+			"type": "font-family"
+		}
+	}
+}

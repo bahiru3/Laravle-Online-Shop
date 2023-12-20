@@ -1,0 +1,98 @@
+@import 'setup';
+
+.lrv-u-display-block {
+	display: block;
+}
+
+.lrv-u-display-contents {
+	display: contents;
+}
+
+.lrv-u-display-inline {
+	display: inline;
+}
+
+.lrv-u-display-inline-block {
+	display: inline-block;
+}
+
+.lrv-u-display-none {
+	display: none;
+}
+
+.lrv-u-display-table {
+	display: table;
+}
+
+.lrv-u-display-inline-flex {
+	display: inline-flex;
+}
+
+@include pmc-breakpoint( desktop ) {
+
+	.lrv-u-display-table\@desktop {
+		display: table;
+	}
+
+	.lrv-u-display-block\@desktop {
+		display: block;
+	}
+
+	.lrv-u-display-contents\@desktop {
+		display: contents;
+	}
+
+	.lrv-u-display-inline\@desktop {
+		display: inline;
+	}
+
+	.lrv-u-display-inline-block\@desktop {
+		display: inline-block;
+	}
+
+	.lrv-u-display-none\@desktop {
+		display: none;
+	}
+
+	.lrv-u-display-inline-flex\@desktop {
+		display: inline-flex;
+	}
+}
+
+@include pmc-breakpoint( desktop-xl ) {
+
+	.lrv-u-display-none\@desktop-xl {
+		display: none;
+	}
+
+	.lrv-u-display-block\@desktop-xl {
+		display: block;
+	}
+}
+
+// Legacy
+.lrv-u-display-none\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		display: none;
+	}
+}
+
+.lrv-u-display-none\:first-child\@desktop-max {
+	@include pmc-breakpoint( desktop-max ) {
+		&> *:first-child {
+			display: none;
+		}
+	}
+}
+
+.lrv-u-display-inline-block\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		display: inline-block;
+	}
+}
+
+.lrv-u-display-block\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		display: block;
+	}
+}

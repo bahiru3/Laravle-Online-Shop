@@ -1,0 +1,16 @@
+<section class="newswire // {{ newswire_classes }}">
+	{% if c_heading %}
+		{% include "@larva/components/c-heading/c-heading.twig" with c_heading %}
+	{% endif %}
+	<ul class="{{ newswire_list_classes }}"
+		{% if newswire_aria_labelledby_attr %}
+			aria-labelledby="{{ newswire_aria_labelledby_attr }}"
+		{% endif %}
+	>
+		{% for item in newswire_items %}
+			<li class="{{ newswire_list_item_classes }}">
+				{% include "@larva/objects/o-card/o-card.twig" with item %}
+			</li>
+		{% endfor %}
+	</ul>
+</section>

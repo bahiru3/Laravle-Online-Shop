@@ -1,0 +1,99 @@
+@import 'setup';
+
+@each $token, $value in $TOKENS-MAP {
+	$token-str: quote( $token );
+
+	@if str-index( $token-str, 'font-size' ) and not str-index( $token-str, '-font-size-' ) {
+		.lrv-u-#{$token} {
+			font-size: $value;
+		}
+	}
+}
+
+// Generates classes .lrv-u-font-size-{int}
+@include u-font-size(
+	(
+		($font-size-8,)
+		($font-size-10,)
+		($font-size-12,)
+		($font-size-14,)
+		($font-size-16,)
+		($font-size-18,)
+		($font-size-20,)
+		($font-size-24,)
+		($font-size-28,)
+		($font-size-32,)
+		($font-size-36,)
+		($font-size-40,)
+		($font-size-50,)
+		($font-size-86,)
+		($font-size-8,  mobile-max) 
+		($font-size-12, mobile-max)
+		($font-size-14, mobile-max)
+		($font-size-16, mobile-max)
+		($font-size-18, mobile-max)
+		($font-size-22, mobile-max)
+		($font-size-26, mobile-max)
+		($font-size-18, tablet,)
+		($font-size-14, tablet,)
+		($font-size-26, tablet,)
+		($font-size-28, tablet,)
+		($font-size-38, tablet,)
+		($font-size-46, tablet,)
+		($font-size-14, desktop,)
+		($font-size-18, desktop,)
+		($font-size-20, desktop)
+		($font-size-24, desktop,)
+		($font-size-26, desktop,)
+		($font-size-32, desktop,)
+		($font-size-36, desktop,)
+		($font-size-50, desktop,)
+		($font-size-28, desktop-xl,)
+		($font-size-56, desktop-xl,)
+		($font-size-18, desktop-xl,)
+		($font-size-32, desktop-xl,)
+		($font-size-28, desktop-xl,)
+		($font-size-46, desktop-xl,)
+	), $NAMESPACE: 'lrv-' );
+
+
+//
+// Media Queries
+//
+
+
+@each $token, $value in $TOKENS-MAP {
+	$token-str: quote( $token );
+
+	@if str-index( $token-str, 'font-size' ) and not str-index( $token-str, '-font-size-' ) {
+
+		@include pmc-breakpoint( desktop ) {
+			.lrv-u-#{$token}\@desktop {
+				font-size: $value;
+			}
+		}
+	}
+}
+
+@each $token, $value in $TOKENS-MAP {
+	$token-str: quote( $token );
+
+	@if str-index( $token-str, 'font-size' ) and not str-index( $token-str, '-font-size-' ) {
+
+		@include pmc-breakpoint( desktop-xl ) {
+			.lrv-u-#{$token}\@desktop-xl {
+				font-size: $value;
+			}
+		}
+	}
+}
+
+.lrv-u-font-size-13 {
+	font-size: pmc-rem(13); 
+}
+
+.lrv-u-font-size-13\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		font-size: pmc-rem(13);
+	}
+}

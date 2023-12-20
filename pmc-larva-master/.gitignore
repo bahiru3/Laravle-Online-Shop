@@ -1,0 +1,31 @@
+# Version control
+.svn
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.buildpath
+.project
+.settings/
+.build/
+.idea/
+nbproject/
+*/tests/build/
+
+# Compass/SASS/SCSS
+.sass-cache
+
+*.map
+
+/test-errors.log
+node_modules
+npm-debug.log
+
+# For the package preview tool
+pnpm-lock.yaml
+
+# Test
+backstop_data/bitmaps_test
+backstop_data/html_report

@@ -1,0 +1,18 @@
+{
+
+	"github": {
+		"enabled": false,
+		"silent": true
+	},
+	"public": false,
+	"redirects": [
+		{
+			"source": "/tokens",
+			"destination": "/"
+		},
+		{
+			"source": "/patterns",
+			"destination": "/larva"
+		}
+	]
+}

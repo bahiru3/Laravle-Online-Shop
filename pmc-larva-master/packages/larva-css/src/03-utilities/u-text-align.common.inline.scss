@@ -1,0 +1,40 @@
+@import '@penskemediacorp/larva-scss/dist/tools';
+
+.lrv-u-text-align-right {
+	text-align: right;
+}
+
+.lrv-u-text-align-left {
+	text-align: left;
+}
+
+.lrv-u-text-align-center {
+	text-align: center;
+}
+
+@include pmc-breakpoint( desktop ) {
+	.lrv-u-text-align-right\@desktop {
+		text-align: right;
+	}
+
+	.lrv-u-text-align-left\@desktop {
+		text-align: left;
+	}
+
+	.lrv-u-text-align-center\@desktop {
+		text-align: center;
+	}
+}
+
+// Legacy
+.lrv-u-text-align-center\@mobile-max {
+	@include pmc-breakpoint( mobile-max ) {
+		text-align: center;
+	}
+}
+
+.lrv-u-text-align-center\@tablet {
+	@include pmc-breakpoint( tablet ) {
+		text-align: center;
+	}
+}

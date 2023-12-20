@@ -1,0 +1,141 @@
+@import 'setup';
+
+.lrv-a-grid {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: start;
+
+	@supports ( display: grid ) {
+		--cols: 1;
+
+		display: grid;
+		grid-gap: 1.25rem;
+		grid-template-columns: repeat( var( --cols ), minmax( 0, 1fr ) );
+	}
+}
+
+.lrv-a-grid-item {
+	// Remove flex characteristics to honor flex-basis value.
+	flex: none;
+	padding: 0.625rem;
+
+	@supports ( display: grid ) {
+		padding: 0;
+	}
+}
+
+$grids: (
+	(
+		columns: 2,
+	),
+	(
+		columns: 3,
+		spans: ( 2 ),
+	),
+	(
+		columns: 2,
+		breakpoint: tablet,
+	),
+	(
+		columns: 3,
+		spans: ( 2 ),
+		breakpoint: tablet,
+	),
+	(
+		columns: 4,
+		spans: ( 2, 3, ),
+		breakpoint: tablet,
+	),
+	(
+		columns: 5,
+		breakpoint: tablet,
+	),
+	(
+		columns: 7,
+		breakpoint: tablet,
+	),
+	(
+		columns: 10,
+		spans: ( 5, 6, 7, 8, 9 ),
+		breakpoint: tablet,
+	),
+	(
+		columns: 20,
+		spans: ( 4, 12, 14, 16, 18 ),
+		breakpoint: tablet,
+	),
+	(
+		columns: 3,
+		breakpoint: desktop,
+	),
+	(
+		columns: 2,
+		breakpoint: desktop,
+	),
+	(
+		columns: 4,
+		spans: ( 2 ),
+		breakpoint: desktop,
+	),
+	(
+		columns: 4,
+		spans: ( 3 ),
+		breakpoint: desktop,
+	),
+	(
+		columns: 5,
+		breakpoint: desktop,
+	),
+	(
+		columns: 7,
+		breakpoint: desktop,
+	),
+	(
+		columns: 10,
+		spans: ( 5, 6, 7, 8, 9 ),
+		breakpoint: desktop,
+	),
+	(
+		columns: 20,
+		spans: ( 4, 12, 14, 16, 18 ),
+		breakpoint: desktop,
+	),
+	(
+		columns: 2,
+		breakpoint: desktop-xl,
+	),
+	(
+		columns: 4,
+		spans: ( 3 ),
+		breakpoint: desktop-xl,
+	),
+	(
+		columns: 4,
+		spans: ( 3 ),
+		breakpoint: mobile-max,
+	),
+	(
+		columns: 5,
+		spans: ( 4 ),
+		breakpoint: mobile-max
+	),
+	(
+		columns: 6,
+		spans: ( 5 ),
+		breakpoint: mobile-max
+	),
+);
+
+@include a-grid( $grids, $NAMESPACE: 'lrv-' );
+
+.lrv-a-grid-first-child-span-all\@mobile-max {
+
+	@include pmc-breakpoint( mobile-max ) {
+
+		& > *:first-child {
+			@supports ( display: grid ) {
+				grid-column: 1 /  -1;
+			}
+		}
+	}
+}
