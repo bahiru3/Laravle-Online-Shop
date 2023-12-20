@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 hello wolrd
 hi Every one
+=======
+hi Tsgeshe
+>>>>>>> 32bff548feb2f34e22150bf5fc77bcc229cbd64b
