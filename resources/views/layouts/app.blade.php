@@ -42,10 +42,22 @@
 
                     <a class="nav-link active" href="{{ route('product.index') }}">Products</a>
 
-                    <a class="nav-link active" href="/cart">Cart</a>
+                    <!-- <a class="nav-link active" href="/cart">Cart</a> -->
 
                     <a class="nav-link active" href="{{ route('home.about') }}">About</a>
-
+                    <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+                    @guest
+                    <a class="nav-link active" href="{{ route('login') }}">Login</a>
+                    <a class="nav-link active" href="{{ route('register') }}">Regestor</a>
+                    @else
+                    @if (Auth::user()->role=='admin')
+                    <a class="nav-link active" href="{{ route('admin.home.index') }}">Dashboard</a>
+                    @endif
+                    <form id="logout" action="{{ route('logout') }}" id="logout" method="POST">
+                        <a class="nav-link active" onclick="document.getElementById('logout').submit();">logout</a>
+                        @csrf
+                    </form>
+                    @endguest
                 </div>
 
             </div>
